@@ -15,28 +15,8 @@ namespace CafeteriaManagement
         {
             InitializeComponent();
             AutoValidate = AutoValidate.Disable;
-            SetRegisterControlsStatus(false);
         }
 
-        private void SetRegisterControlsStatus(bool state)
-        {
-            textBoxRegisterPassword.Enabled = state;
-            textBoxRegisterUsername.Enabled = state;
-            textBoxReenterPassword.Enabled = state;
-            textBoxCode.Enabled = state;
-
-            textBoxRegisterPassword.Text = "";
-            textBoxRegisterUsername.Text = "";
-            textBoxReenterPassword.Text = "";
-            textBoxCode.Text = "";
-
-            textBoxUsername_Leave(textBoxRegisterUsername, EventArgs.Empty);
-            textBoxPassword_Leave(textBoxRegisterPassword, EventArgs.Empty);
-            textBoxReenterPassword_Leave(textBoxReenterPassword, EventArgs.Empty);
-            TextBoxCode_Leave(textBoxCode, EventArgs.Empty);
-
-            errorProvider.Clear();
-        }
 
         private void TestRegisterForm_Load(object sender, EventArgs e)
         {
@@ -45,11 +25,7 @@ namespace CafeteriaManagement
 
         private void ButtonOk_Click(object sender, EventArgs e)
         {
-            if (panelSignIn.Left >= 320)
-                timerSignIn.Start();
-            else
-                timerRegister.Start();
-            SetRegisterControlsStatus(!textBoxRegisterUsername.Enabled);
+            timerSignIn.Start();
             SetSignInControlsStatus(!textBoxUsername.Enabled);
         }
 
@@ -70,17 +46,6 @@ namespace CafeteriaManagement
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        private void timerSignIn_Tick(object sender, EventArgs e)
-        {
-            if (panelRegister.Left > 320)
-            {
-                panelRegister.Left -= 10;
-                panelSignIn.Left -= 10;
-            }
-            else
-                timerSignIn.Stop();
         }
 
         private void timerRegister_Tick(object sender, EventArgs e)
@@ -198,7 +163,6 @@ namespace CafeteriaManagement
         {
             textBoxRegisterUsername.CausesValidation = true;
             textBoxRegisterPassword.CausesValidation = true;
-            textBoxCode.CausesValidation = true;
             textBoxReenterPassword.CausesValidation = true;
 
             if (!ValidateChildren(ValidationConstraints.Enabled))
@@ -319,9 +283,7 @@ namespace CafeteriaManagement
                 btnKichHoat.Text = "Register";
                 btnKichHoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(134)))), ((int)(((byte)(89)))));
             }
-            SetRegisterControlsStatus(!textBoxRegisterUsername.Enabled);
-            SetSignInControlsStatus(!textBoxUsername.Enabled);
-           
+            SetSignInControlsStatus(!textBoxUsername.Enabled);  
        }
     }
 }

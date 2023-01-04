@@ -227,7 +227,7 @@ namespace CafeteriaManagement
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 8, 2, BaseColor.GRAY);
             prgAuthor.Alignment = Element.ALIGN_RIGHT;
-            prgAuthor.Add(new Chunk("Author : Nguyen Chi Thanh", fntAuthor));
+            prgAuthor.Add(new Chunk("Author : Phan Van Quoc Tuan", fntAuthor));
             prgAuthor.Add(new Chunk("\nRun Date : " + DateTime.Now.ToShortDateString(), fntAuthor));
             document.Add(prgAuthor);
 

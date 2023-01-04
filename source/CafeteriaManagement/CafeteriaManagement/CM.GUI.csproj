@@ -712,9 +712,6 @@
     <None Include="Resources\icons8_back3_32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\68401570_2355563994763021_3477536896748355584_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8_pencil_32.png" />
   </ItemGroup>
   <ItemGroup>
